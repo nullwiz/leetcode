@@ -159,3 +159,26 @@ func TestBigNums10k(t *testing.T) {
 	}
 	t.Log("Elapsed time: ", time.Since(elapsed))
 }
+
+func TestBigNums50k(t *testing.T) {
+	arr := make([]int, 32000 * 5)
+	for i := range arr {
+		arr[i] = 1
+	}
+	// sorted should be
+	expected := arr
+	// take time
+	elapsed := time.Now()
+	arr = quickSortNaive(arr)
+	// compare slices
+	for i := range arr {
+		if arr[i] != expected[i] {
+			t.Errorf("Expected %v, got %v", expected, arr)
+		}
+	}
+	//compare time
+	if time.Since(elapsed) > time.Millisecond*100 {
+		t.Errorf("Expected less than 100ms, got %v", time.Since(elapsed))
+	}
+	t.Log("Elapsed time: ", time.Since(elapsed))
+}

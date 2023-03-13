@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+) 
 
 func QuickSort(arr []int) {
 	quickSortHelper(arr, 0, len(arr)-1)
@@ -16,7 +18,7 @@ func quickSortHelper(arr []int, low, high int) {
 
 func partition(arr []int, low, high int) int {
 	// Choose last element as pivot
-	pivot := arr[high]
+	pivot := arr[high] 
 	// Initialize index of smaller element
 	i := low - 1
 	for j := low; j < high; j++ {
