@@ -1,6 +1,9 @@
 package main
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func quicksort(arr []int) []int {
 	// Base case
@@ -26,7 +29,10 @@ func quicksort(arr []int) []int {
 	return arr
 }
 
-func main(){
-	arr := []int{5,4,-1,3,2,1}
-	quicksort(arr)
+func main() {
+	arr := []int{5, 4, -1, 3, 2, 1}
+	fmt.Println(quicksort(arr))
+	arr2 := []int{5, 4, -1, 3, 2, 1}
+	quicksort_book(arr2, 0, len(arr2)-1)
+	fmt.Println(arr2)
 }
